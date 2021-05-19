@@ -5,6 +5,17 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <Compile Remove="Migrations\20210518104832_Initial.cs" />
+    <Compile Remove="Migrations\20210518104832_Initial.Designer.cs" />
+    <Compile Remove="Migrations\20210519021721_SeedData.cs" />
+    <Compile Remove="Migrations\20210519021721_SeedData.Designer.cs" />
+    <Compile Remove="Migrations\20210519022346_SeedData.cs" />
+    <Compile Remove="Migrations\20210519022346_SeedData.Designer.cs" />
+    <Compile Remove="Migrations\20210519022559_SeedData.cs" />
+    <Compile Remove="Migrations\20210519022559_SeedData.Designer.cs" />
+  </ItemGroup>
+
+  <ItemGroup>
     <PackageReference Include="Microsoft.EntityFrameworkCore.Design" Version="3.1.11">
       <PrivateAssets>all</PrivateAssets>
       <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
