@@ -11,7 +11,6 @@ using System.Net.Http.Headers;
 using System.Threading.Tasks;
 using Utilities.Exeptions;
 using ViewModels.Catalog.Products;
-using ViewModels.Catalog.Products.Manage;
 using ViewModels.Common;
 
 namespace Application.Catalog.Products
@@ -99,7 +98,7 @@ namespace Application.Catalog.Products
             throw new NotImplementedException();
         }
 
-        public async Task<PagedResult<ProductViewModel>> GetAllPaging(GetProductPagingRequest request)
+        public async Task<PagedResult<ProductViewModel>> GetAllPaging(GetManageProductPagingRequest request)
         {
             var query = from p in _context.Products
                         join pt in _context.ProductTranslations on p.Id equals pt.ProductId

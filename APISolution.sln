@@ -14,9 +14,11 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Data", "Data\Data.csproj", 
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Application", "Application\Application.csproj", "{581E9287-DE88-48A6-990B-43115DB76D85}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Utilities", "Utilities\Utilities.csproj", "{B48E2A77-5C66-4F68-B605-DE4A34C4DFDB}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Utilities", "Utilities\Utilities.csproj", "{B48E2A77-5C66-4F68-B605-DE4A34C4DFDB}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ViewModels", "ViewModels\ViewModels.csproj", "{11576DE9-F77E-455E-AFCE-AE24F0C9178F}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ViewModels", "ViewModels\ViewModels.csproj", "{11576DE9-F77E-455E-AFCE-AE24F0C9178F}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BackEndAPI", "BackEndAPI\BackEndAPI.csproj", "{992D8A9C-23A8-46A8-82DE-D8BB8D3FA6CA}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -44,6 +46,10 @@ Global
 		{11576DE9-F77E-455E-AFCE-AE24F0C9178F}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{11576DE9-F77E-455E-AFCE-AE24F0C9178F}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{11576DE9-F77E-455E-AFCE-AE24F0C9178F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{992D8A9C-23A8-46A8-82DE-D8BB8D3FA6CA}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{992D8A9C-23A8-46A8-82DE-D8BB8D3FA6CA}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{992D8A9C-23A8-46A8-82DE-D8BB8D3FA6CA}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{992D8A9C-23A8-46A8-82DE-D8BB8D3FA6CA}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

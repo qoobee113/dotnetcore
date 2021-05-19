@@ -4,7 +4,6 @@ using System.Collections.Generic;
 using System.Text;
 using System.Threading.Tasks;
 using ViewModels.Catalog.Products;
-using ViewModels.Catalog.Products.Manage;
 using ViewModels.Common;
 
 namespace Application.Catalog.Products
@@ -20,7 +19,7 @@ namespace Application.Catalog.Products
 
         Task<bool> UpdateStock(int productId, int addedQuantity);
 
-        Task<PagedResult<ProductViewModel>> GetAllPaging(GetProductPagingRequest request);
+        Task<PagedResult<ProductViewModel>> GetAllPaging(GetManageProductPagingRequest request);
 
         Task<int> AddImages(int productId, List<IFormFile> files);
 
