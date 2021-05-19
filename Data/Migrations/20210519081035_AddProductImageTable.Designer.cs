@@ -4,14 +4,16 @@ using Data.EF;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 namespace Data.Migrations
 {
     [DbContext(typeof(AppDbContext))]
-    partial class AppDbContextModelSnapshot : ModelSnapshot
+    [Migration("20210519081035_AddProductImageTable")]
+    partial class AddProductImageTable
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -78,7 +80,7 @@ namespace Data.Migrations
                         new
                         {
                             Id = new Guid("8d04dce2-969a-435d-bba4-df3f325983dc"),
-                            ConcurrencyStamp = "30278c6d-95fe-4576-9e37-84e3a70aace2",
+                            ConcurrencyStamp = "52b67efc-5da5-41df-8489-191a36b0aeea",
                             Description = "Administrator role",
                             Name = "admin",
                             NormalizedName = "admin"
@@ -155,7 +157,7 @@ namespace Data.Migrations
                         {
                             Id = new Guid("69bd714f-9576-45ba-b5b7-f00649be00de"),
                             AccessFailedCount = 0,
-                            ConcurrencyStamp = "7a528c83-e781-4d9b-bfe7-f3c74890bab7",
+                            ConcurrencyStamp = "21bc77e4-182c-43a5-af56-4685d8bb4173",
                             Dob = new DateTime(2020, 1, 31, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Email = "tedu.international@gmail.com",
                             EmailConfirmed = true,
@@ -164,7 +166,7 @@ namespace Data.Migrations
                             LockoutEnabled = false,
                             NormalizedEmail = "tedu.international@gmail.com",
                             NormalizedUserName = "admin",
-                            PasswordHash = "AQAAAAEAACcQAAAAENandn5m+PzsgCTdQv/99brr31dB0GkYrsWnMam98DZOYFYXrK54+m4xgV2/LSeEpA==",
+                            PasswordHash = "AQAAAAEAACcQAAAAEOE1bw5ZuzhmlI+DndrYqcP7c97V+gyBxEUZva/9UK1D8tN5Fptr1FToT2s6O3TkWw==",
                             PhoneNumberConfirmed = false,
                             SecurityStamp = "",
                             TwoFactorEnabled = false,
@@ -510,7 +512,7 @@ namespace Data.Migrations
                         new
                         {
                             Id = 1,
-                            DateCreated = new DateTime(2021, 5, 19, 16, 7, 44, 99, DateTimeKind.Local).AddTicks(5868),
+                            DateCreated = new DateTime(2021, 5, 19, 15, 10, 35, 226, DateTimeKind.Local).AddTicks(5822),
                             OriginalPrice = 100000m,
                             Price = 200000m,
                             Stock = 0,
@@ -534,16 +536,13 @@ namespace Data.Migrations
                     b.Property<DateTime>("DateCreated")
                         .HasColumnType("datetime2");
 
-                    b.Property<long>("FileSize")
-                        .HasColumnType("bigint");
+                    b.Property<int>("FileSize")
+                        .HasColumnType("int");
 
                     b.Property<string>("ImagePath")
                         .IsRequired()
                         .HasColumnType("nvarchar(200)")
                         .HasMaxLength(200);
-
-                    b.Property<bool>("IsDefault")
-                        .HasColumnType("bit");
 
                     b.Property<int>("ProductId")
                         .HasColumnType("int");
@@ -551,11 +550,14 @@ namespace Data.Migrations
                     b.Property<int>("SortOrder")
                         .HasColumnType("int");
 
+                    b.Property<bool>("isDefault")
+                        .HasColumnType("bit");
+
                     b.HasKey("Id");
 
                     b.HasIndex("ProductId");
 
-                    b.ToTable("ProductImages");
+                    b.ToTable("ProductIamges");
                 });
 
             modelBuilder.Entity("Data.Entities.ProductInCategory", b =>
