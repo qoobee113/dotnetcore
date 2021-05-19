@@ -1,38 +1,16 @@
-﻿using Microsoft.EntityFrameworkCore;
-using Data.Entities;
+﻿using Data.Entities;
+using Data.Enums;
+using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
 using System.Text;
-using Data.Configuarations;
-using Data.Enums;
 
-namespace Data.EF
+namespace Data.Extensions
 {
-    public class AppDbContext : DbContext
+    public static class ModelBuilderExtensions
     {
-        public AppDbContext(DbContextOptions options) : base(options)
+        public static void Seed(this ModelBuilder modelBuilder)
         {
-        }
-        protected override void OnModelCreating(ModelBuilder modelBuilder)
-        {
-            //Configure using Fluent API
-            modelBuilder.ApplyConfiguration(new CartConfiguration());
-
-            modelBuilder.ApplyConfiguration(new AppConfigConfiguration());
-            modelBuilder.ApplyConfiguration(new ProductConfiguration());
-            modelBuilder.ApplyConfiguration(new CategoryConfiguration());
-            modelBuilder.ApplyConfiguration(new ProductInCategoryConfiguration());
-            modelBuilder.ApplyConfiguration(new OrderConfiguration());
-
-            modelBuilder.ApplyConfiguration(new OrderDetailConfiguration());
-            modelBuilder.ApplyConfiguration(new CategoryTranslationConfiguration());
-            modelBuilder.ApplyConfiguration(new ContactConfiguration());
-            modelBuilder.ApplyConfiguration(new LanguageConfiguration());
-            modelBuilder.ApplyConfiguration(new ProductTranslationConfiguration());
-            modelBuilder.ApplyConfiguration(new PromotionConfiguration());
-            modelBuilder.ApplyConfiguration(new TransactionConfiguration());
-
-            //Data Seeding
             modelBuilder.Entity<AppConfig>().HasData(
                 new AppConfig() { Key = "HomeTitle", Value = "This is home page of Project .NET CORE" },
                 new AppConfig() { Key = "HomeKeyWord", Value = "This is key word of Project .NET CORE" },
@@ -107,31 +85,6 @@ namespace Data.EF
                 new ProductInCategory() { ProductId = 1, CategoryId = 1 }
                 );
 
-
         }
-        public DbSet<Product> Products { get; set; }
-        public DbSet<Category> Categories { get; set; }
-
-        public DbSet<AppConfig> AppConfigs { get; set; }
-
-
-        public DbSet<Cart> Carts { get; set; }
-
-        public DbSet<CategoryTranslation> CategoryTranslations { get; set; }
-        public DbSet<ProductInCategory> ProductInCategories { get; set; }
-
-        public DbSet<Contact> Contacts { get; set; }
-
-        public DbSet<Language> Languages { get; set; }
-
-        public DbSet<Order> Orders { get; set; }
-
-        public DbSet<OrderDetail> OrderDetails { get; set; }
-        public DbSet<ProductTranslation> ProductTranslations { get; set; }
-
-        public DbSet<Promotion> Promotions { get; set; }
-
-
-        public DbSet<Transaction> Transactions { get; set; }
     }
 }
