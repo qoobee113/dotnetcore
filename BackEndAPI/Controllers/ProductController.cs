@@ -5,11 +5,13 @@ using System.Linq;
 using System.Threading.Tasks;
 using Application.Catalog.Products;
 using ViewModels.Catalog.Products;
+using Microsoft.AspNetCore.Authorization;
 
 namespace BackEndAPI.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
+    [Authorize]
     public class ProductController : Controller
     {
         private readonly IPublicProductService _publicProductService;
