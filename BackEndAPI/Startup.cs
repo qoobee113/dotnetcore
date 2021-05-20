@@ -16,6 +16,9 @@ using Utilities.Constans;
 using Application.Catalog.Products;
 using Microsoft.OpenApi.Models;
 using Application.Common;
+using Microsoft.AspNetCore.Identity;
+using Data.Entities;
+using Application.System.Users;
 
 namespace BackEndAPI
 {
@@ -33,9 +36,17 @@ namespace BackEndAPI
         {
             services.AddDbContext<AppDbContext>(options =>
                 options.UseSqlServer(Configuration.GetConnectionString(SystemConstants.MainConnectString)));
+
+            services.AddIdentity<AppUser, AppRole>()
+                .AddEntityFrameworkStores<AppDbContext>()
+                .AddDefaultTokenProviders();
             //Declare DI
             services.AddTransient<IPublicProductService, PublicProductService>();
             services.AddTransient<IManageProductService, ManageProductService>();
+            services.AddTransient<IUserService, UserService>();
+            services.AddTransient<UserManager<AppUser>, UserManager<AppUser>>();
+            services.AddTransient<SignInManager<AppUser>, SignInManager<AppUser>>();
+            services.AddTransient<RoleManager<AppRole>, RoleManager<AppRole>>();
             services.AddTransient<IStorageService, FileStorageService>();
 
             services.AddControllers();
