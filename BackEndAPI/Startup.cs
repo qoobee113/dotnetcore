@@ -15,6 +15,7 @@ using System.Threading.Tasks;
 using Utilities.Constans;
 using Application.Catalog.Products;
 using Microsoft.OpenApi.Models;
+using Application.Common;
 
 namespace BackEndAPI
 {
@@ -34,12 +35,14 @@ namespace BackEndAPI
                 options.UseSqlServer(Configuration.GetConnectionString(SystemConstants.MainConnectString)));
             //Declare DI
             services.AddTransient<IPublicProductService, PublicProductService>();
+            services.AddTransient<IManageProductService, ManageProductService>();
+            services.AddTransient<IStorageService, FileStorageService>();
 
             services.AddControllers();
 
             services.AddSwaggerGen(c =>
             {
-                c.SwaggerDoc("v1", new OpenApiInfo { Title = "Swagger eShop Solution", Version = "v1" });
+                c.SwaggerDoc("v1", new OpenApiInfo { Title = "API Production", Version = "v1" });
             });
         }
 
@@ -61,7 +64,7 @@ namespace BackEndAPI
 
             app.UseSwaggerUI(c =>
             {
-                c.SwaggerEndpoint("/swagger/v1/swagger.json", "Swagger API V1");
+                c.SwaggerEndpoint("/swagger/v1/swagger.json", "V1");
             });
 
             app.UseEndpoints(endpoints =>
